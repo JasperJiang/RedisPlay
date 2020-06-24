@@ -178,7 +178,7 @@ kv模式不变，但v是一个键值对
 
 类似Java里面的Map<String,Object>
 
-hset  key  (key value)  向hash表中添加一个元素
+hset  key  key value  向hash表中添加一个元素
 
 hget key  key  向hash表中获取一个元素
 
