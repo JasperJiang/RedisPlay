@@ -202,6 +202,8 @@ bitcount 来统计数组中有多少个1
 
     有误判率（因为hash碰撞） 误判率（数组大小和hash函数的个数）越高消耗的内存越小
 
+    ![bloomFilter](assets/bloomfilter.png)
+
     - 实现方法
 
         - Google 的 Guava 包里面有 BloomFilter 
