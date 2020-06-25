@@ -1,6 +1,12 @@
 # Redis
 
-单线程（不会有并发问题），高性能的（key/value）内存数据库，基于内存运行并且支持持久化
+## 是什么
+
+单线程（不会有并发问题），高性能的（key/value）内存数据库，基于内存运行并且支持持久化。
+
+## 能干嘛？
+
+主要是用来做缓存，但不仅仅只能做缓存，比如：redis的计数器生成分布式唯一主键，redis实现分布式锁，队列，会话缓存，点赞，统计网站访问量。
 
 ## 安装
 
@@ -26,6 +32,14 @@ redis 在启动的时候会在dir下找rdb文件去回复数据
 ## api操作[https://redisdoc.com/](https://redisdoc.com/)
 
 ## redis的持久化机制
+
+说白了，就是在指定的时间间隔内，将内存当中的数据集快照写入磁盘，它恢复时是将快照文件直接读到内存
+
+redis提供两种方式进行持久化：
+
+- RDB
+
+- AOF（append only file）
 
 ### RDB 
 
@@ -125,12 +139,16 @@ auto-aof-rewrite-min-size 64mb
 bgrewriteaof
 
 #### redis 4.0 之后混合持久化机制
-AOF重写前以rdb格式，重写之后用AOF格式
-```
-aof-use-rdb-preamble yes
-```
 
-## redis数据类型
+4.0版本的混合持久化默认关闭的，通过aof-use-rdb-preamble配置参数控制，yes则表示开启，no表示禁用，5.0之后默认开启。
+
+AOF重写前以rdb格式，重写之后用AOF格式
+
+优点：混合持久化结合了RDB持久化 和 AOF 持久化的优点, 由于绝大部分都是RDB格式，加载速度快，同时结合AOF，增量的数据以AOF方式保存了，数据更少的丢失。
+
+缺点：兼容性差，一旦开启了混合持久化，在4.0之前版本都不识别该aof文件，同时由于前部分是RDB格式，阅读性较差
+
+## [redis数据类型](redis数据类型.md)
 
 ### string
 
@@ -160,7 +178,7 @@ kv模式不变，但v是一个键值对
 
 Redis zset 和 set 一样也是string类型元素的集合,且不允许重复的成员。 不同的是每个元素都会关联一个double类型的分数。 redis正是通过分数来为集合中的成员进行从小到大的排序。zset的成员是唯一的,但分数(score)却可以重复。
 
-## redis内容扩展
+## [redis内容扩展](redis数据类型扩展.md)
 
 ### GEO
 
