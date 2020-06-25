@@ -203,7 +203,7 @@ bitcount 来统计数组中有多少个1
 
 redisson
 
-集群时候可以使用redlock
+为了防止一台机器挂了可以使用redlock获取多个redis的锁
 
 ## [缓存几大问题](redis缓存的几大问题.md)
 
