@@ -196,6 +196,13 @@ bitcount 来统计数组中有多少个1
 
 可以实现不保存数据库的情况下点赞功能
 
+## [redis主从复制&哨兵](redis主从复制&哨兵.md)
+
+从数据会被删除
+
+![redis_master_slave](assets/redis_master_slave.png)
+
+配从不配主
 
 ## [redis集群](redis集群.md)
 
@@ -373,7 +380,7 @@ redis使用了**定期删除**+**惰性删除**
 
 1. 开启事务
 
-    ```
+    ```bash
     multi
     ```
 
@@ -381,7 +388,7 @@ redis使用了**定期删除**+**惰性删除**
 
 3. 执行事务/取消事务
 
-    ```
+    ```bash
     exec/discard
     ```
 
@@ -422,3 +429,7 @@ unwatch 取消监控
 -	UNSUBSCRIBE [channel [channel ...]]
 
     指退订给定的频道。
+
+## 数据库与缓存数据一致性
+
+![数据库与缓存数据一致性](assets/数据库与缓存数据一致性.png)
