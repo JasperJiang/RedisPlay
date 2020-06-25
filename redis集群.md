@@ -150,4 +150,6 @@ redis-cli -h xxx.xxx.xxx.xxx -c(以集群方式连接)
 
 ## Java 使用集群原理
 
+jedis
+
 ![redis_cluster_java](assets/redis_cluster_java.png)

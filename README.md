@@ -199,7 +199,11 @@ bitcount 来统计数组中有多少个1
 
 ## [redis集群](redis集群.md)
 
-## [redis分布式锁](redis分布式锁.md)
+## redis分布式锁
+
+redisson
+
+集群时候可以使用redlock
 
 ## [缓存几大问题](redis缓存的几大问题.md)
 
