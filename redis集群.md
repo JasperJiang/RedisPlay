@@ -147,3 +147,7 @@ redis-cli -h xxx.xxx.xxx.xxx -c(以集群方式连接)
     ```
 
 **tips: 先删除从节点，因为如果删除主节点会触发主从切换，没有必要**
+
+## Java 使用集群原理
+
+![redis_cluster_java](assets/redis_cluster_java.png)
